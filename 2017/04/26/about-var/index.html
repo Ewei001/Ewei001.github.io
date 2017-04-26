@@ -15,17 +15,17 @@
     <meta name="keywords" content="Javascript," />
   
 
-  <meta name="description" content="##最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题： var global = ‘hello’;function test(){    console.log(global);    var global = ‘world’;    console.log(global);} ##两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和world">
+  <meta name="description" content="最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题：123456var global = &apos;hello&apos;;function test()&amp;#123;    console.log(global);	var global = &apos;world&apos;;	console.log(global);&amp;#125; 两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和">
 <meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="about_var">
 <meta property="og:url" content="http://yoursite.com/2017/04/26/about-var/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题： var global = ‘hello’;function test(){    console.log(global);    var global = ‘world’;    console.log(global);} ##两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和world">
-<meta property="og:updated_time" content="2017-04-26T13:40:26.363Z">
+<meta property="og:description" content="最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题：123456var global = &apos;hello&apos;;function test()&amp;#123;    console.log(global);	var global = &apos;world&apos;;	console.log(global);&amp;#125; 两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和">
+<meta property="og:updated_time" content="2017-04-26T13:45:22.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about_var">
-<meta name="twitter:description" content="##最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题： var global = ‘hello’;function test(){    console.log(global);    var global = ‘world’;    console.log(global);} ##两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和world">
+<meta name="twitter:description" content="最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题：123456var global = &apos;hello&apos;;function test()&amp;#123;    console.log(global);	var global = &apos;world&apos;;	console.log(global);&amp;#125; 两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和">
 
   
 
@@ -182,6 +182,11 @@
 </div>
 
 
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题："><span class="toc-text">最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和world，很是困扰。"><span class="toc-text">两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和world，很是困扰。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果把后面两行去掉："><span class="toc-text">如果把后面两行去掉：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#这样子打印出来就是hello，那肯定是和后定义的变量有关系了。"><span class="toc-text">这样子打印出来就是hello，那肯定是和后定义的变量有关系了。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#果然，在网上查了一下，第二个var变量作用于整个function，个人理解也就是相当于："><span class="toc-text">果然，在网上查了一下，第二个var变量作用于整个function，个人理解也就是相当于：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#那要是函数内有相同变量就不可以访问全局变量了吗，答案当然是否定的"><span class="toc-text">那要是函数内有相同变量就不可以访问全局变量了吗，答案当然是否定的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在函数内可以通过window-global调用全局变量，"><span class="toc-text">在函数内可以通过window.global调用全局变量，</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#另外function内的this也是指向window实例，也可以吧引用写成this-global"><span class="toc-text">另外function内的this也是指向window实例，也可以吧引用写成this.global</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#当然最好还是尽量避免同名变量的出现，减少出错的概率。"><span class="toc-text">当然最好还是尽量避免同名变量的出现，减少出错的概率。</span></a></li></ol>
+  </div>
+
 
 
 <div class="content content-post CENTER">
@@ -227,17 +232,10 @@
 
   <div class="article-content">
     
-      <p>##最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题：</p>
-<p>var global = ‘hello’;<br>function test(){<br>    console.log(global);<br>    var global = ‘world’;<br>    console.log(global);<br>}</p>
-<p>##两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和world，很是困扰。</p>
-<p>##如果把后面两行去掉：<br>var global = ‘hello’;<br>function test(){<br>    console.log(global);<br>}</p>
-<p>##这样子打印出来就是hello，那肯定是和后定义的变量有关系了。</p>
-<p>##果然，在网上查了一下，第二个var变量作用于整个function，个人理解也就是相当于：<br>var global = ‘hello’;<br>function test(){<br>    var global;<br>    console.log(global);<br>    global = ‘world’;<br>    console.log(global);<br>}</p>
-<p>##那要是函数内有相同变量就不可以访问全局变量了吗，答案当然是否定的</p>
-<p>##在函数内可以通过window.global调用全局变量，</p>
-<p>##另外function内的this也是指向window实例，也可以吧引用写成this.global</p>
-<p>##当然最好还是尽量避免同名变量的出现，减少出错的概率。</p>
-
+      <h2 id="最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题："><a href="#最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题：" class="headerlink" title="最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题："></a>最近遇到了一个关于var变量很简单的问题，废话不多说，直接看问题：</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> global = <span class="string">'hello'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(global);</div><div class="line">	<span class="keyword">var</span> global = <span class="string">'world'</span>;</div><div class="line">	<span class="built_in">console</span>.log(global);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和world，很是困扰。"><a href="#两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和world，很是困扰。" class="headerlink" title="两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和world，很是困扰。"></a>两次打印，第一次undefined，第二次是world，笔者一直以为两次应该是hello和world，很是困扰。</h2><h2 id="如果把后面两行去掉："><a href="#如果把后面两行去掉：" class="headerlink" title="如果把后面两行去掉："></a>如果把后面两行去掉：</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> global = <span class="string">'hello'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(global);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="这样子打印出来就是hello，那肯定是和后定义的变量有关系了。"><a href="#这样子打印出来就是hello，那肯定是和后定义的变量有关系了。" class="headerlink" title="这样子打印出来就是hello，那肯定是和后定义的变量有关系了。"></a>这样子打印出来就是hello，那肯定是和后定义的变量有关系了。</h2><h2 id="果然，在网上查了一下，第二个var变量作用于整个function，个人理解也就是相当于："><a href="#果然，在网上查了一下，第二个var变量作用于整个function，个人理解也就是相当于：" class="headerlink" title="果然，在网上查了一下，第二个var变量作用于整个function，个人理解也就是相当于："></a>果然，在网上查了一下，第二个var变量作用于整个function，个人理解也就是相当于：</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> global = <span class="string">'hello'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> global;</div><div class="line">    <span class="built_in">console</span>.log(global);</div><div class="line">	global = <span class="string">'world'</span>;</div><div class="line">	<span class="built_in">console</span>.log(global);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="那要是函数内有相同变量就不可以访问全局变量了吗，答案当然是否定的"><a href="#那要是函数内有相同变量就不可以访问全局变量了吗，答案当然是否定的" class="headerlink" title="那要是函数内有相同变量就不可以访问全局变量了吗，答案当然是否定的"></a>那要是函数内有相同变量就不可以访问全局变量了吗，答案当然是否定的</h2><h2 id="在函数内可以通过window-global调用全局变量，"><a href="#在函数内可以通过window-global调用全局变量，" class="headerlink" title="在函数内可以通过window.global调用全局变量，"></a>在函数内可以通过window.global调用全局变量，</h2><h2 id="另外function内的this也是指向window实例，也可以吧引用写成this-global"><a href="#另外function内的this也是指向window实例，也可以吧引用写成this-global" class="headerlink" title="另外function内的this也是指向window实例，也可以吧引用写成this.global"></a>另外function内的this也是指向window实例，也可以吧引用写成this.global</h2><h2 id="当然最好还是尽量避免同名变量的出现，减少出错的概率。"><a href="#当然最好还是尽量避免同名变量的出现，减少出错的概率。" class="headerlink" title="当然最好还是尽量避免同名变量的出现，减少出错的概率。"></a>当然最好还是尽量避免同名变量的出现，减少出错的概率。</h2>
     
   </div>
 </article>
