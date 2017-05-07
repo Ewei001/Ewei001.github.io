@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/03/MultipleThread/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Java中的多线程用并发解决的问题大体上可以分为“速度”和“设计可管理性”两种。 创建线程的三种方法 通过Runnable接口创建线程类 继承Thread类创建线程类 通过Callable和Future创建线程这三种基本方法的具体例子就不详细地讲了，简单介绍一下。  通过实现Runnable接口创建线程类要想定义任务，只需实现Runnable接口并编写run()方法，使得该任务可以执行你的命令。当">
-<meta property="og:updated_time" content="2017-05-05T12:45:37.395Z">
+<meta property="og:updated_time" content="2017-05-07T02:11:37.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Multiple Thread">
 <meta name="twitter:description" content="Java中的多线程用并发解决的问题大体上可以分为“速度”和“设计可管理性”两种。 创建线程的三种方法 通过Runnable接口创建线程类 继承Thread类创建线程类 通过Callable和Future创建线程这三种基本方法的具体例子就不详细地讲了，简单介绍一下。  通过实现Runnable接口创建线程类要想定义任务，只需实现Runnable接口并编写run()方法，使得该任务可以执行你的命令。当">
@@ -149,7 +149,7 @@
             rel="noopener noreferrer"
             target="_self"
             >
-            关于
+            Me
           </a>
         </li>
       
@@ -184,7 +184,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中的多线程"><span class="toc-text">Java中的多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建线程的三种方法"><span class="toc-text">创建线程的三种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通过实现Runnable接口创建线程类"><span class="toc-text">通过实现Runnable接口创建线程类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#继承Thread类创建线程类"><span class="toc-text">继承Thread类创建线程类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过Callable和FutureTask创建线程"><span class="toc-text">通过Callable和FutureTask创建线程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于线程池"><span class="toc-text">关于线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用线程池的原因"><span class="toc-text">使用线程池的原因</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#concurrent包下面的一些类"><span class="toc-text">concurrent包下面的一些类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CountDownLatch"><span class="toc-text">CountDownLatch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CyclicBarrier"><span class="toc-text">CyclicBarrier</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DelayQueue"><span class="toc-text">DelayQueue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PriorityBlockingQueue"><span class="toc-text">PriorityBlockingQueue</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java内存模型与多线程"><span class="toc-text">Java内存模型与多线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于volatile关键字"><span class="toc-text">关于volatile关键字</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中的多线程"><span class="toc-text">Java中的多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建线程的三种方法"><span class="toc-text">创建线程的三种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通过实现Runnable接口创建线程类"><span class="toc-text">通过实现Runnable接口创建线程类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#继承Thread类创建线程类"><span class="toc-text">继承Thread类创建线程类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过Callable和FutureTask创建线程"><span class="toc-text">通过Callable和FutureTask创建线程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于线程池"><span class="toc-text">关于线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用线程池的原因"><span class="toc-text">使用线程池的原因</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何创建线程池"><span class="toc-text">如何创建线程池</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#concurrent包下面的一些类"><span class="toc-text">concurrent包下面的一些类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CountDownLatch"><span class="toc-text">CountDownLatch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CyclicBarrier"><span class="toc-text">CyclicBarrier</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DelayQueue"><span class="toc-text">DelayQueue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PriorityBlockingQueue"><span class="toc-text">PriorityBlockingQueue</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java内存模型与多线程"><span class="toc-text">Java内存模型与多线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于volatile关键字"><span class="toc-text">关于volatile关键字</span></a></li></ol></li></ol>
   </div>
 
 
@@ -255,7 +255,7 @@
 <li>减少在创建和销毁线程上所花的时间以及系统资源的开销</li>
 <li>如果不使用线程池，有可能造成系统创建大量线程而导致消耗完系统内存以及“过渡切换”</li>
 </ol>
-<h3 id="concurrent包下面的一些类"><a href="#concurrent包下面的一些类" class="headerlink" title="concurrent包下面的一些类"></a>concurrent包下面的一些类</h3><p>Java.util.concurrent引入了大量设计用来解决并发问题的新类。学习使用它们将有助于你编写出更加简洁而健壮的并发程序。</p>
+<h4 id="如何创建线程池"><a href="#如何创建线程池" class="headerlink" title="如何创建线程池"></a>如何创建线程池</h4><h3 id="concurrent包下面的一些类"><a href="#concurrent包下面的一些类" class="headerlink" title="concurrent包下面的一些类"></a>concurrent包下面的一些类</h3><p>Java.util.concurrent引入了大量设计用来解决并发问题的新类。学习使用它们将有助于你编写出更加简洁而健壮的并发程序。</p>
 <h4 id="CountDownLatch"><a href="#CountDownLatch" class="headerlink" title="CountDownLatch"></a>CountDownLatch</h4><p>它被用来同步一个或多个任务，强制它们等待由其他任务执行的一组操作完成。<br>你可以向CountDownLatch对象设置一个初始计数值，任何在这个对象上调用wait()方法都将阻塞，直到这个计数值达到0.<br>其他任务在结束其工作时，可以在该对象上调用countDown()来减小这个计数值。CountLatch被设计为只触发一次，计数值不能被重置。<br>如果需要能够重置计数值的版本，可以使用CyclicBarrier.<br>CountDownLatch的典型用法是将一个程序分为n个相互独立的可解决任务，并创建值为0的CountDownLatch。当每个任务完成时，都会在这个锁存器上调用countDown()。<br>等待问题被解决的任务在这个锁存器上调用await()，将它们自己拦住，直至锁存器计数结束。</p>
 <h4 id="CyclicBarrier"><a href="#CyclicBarrier" class="headerlink" title="CyclicBarrier"></a>CyclicBarrier</h4><p>你希望创建一组任务，它们并行地执行工作，然后在进行下一个步骤之前等待，直至所有任务都完成（有些像join）<br>它使得所有并行任务都在栅栏处队列，因此可以一致地向前移动。<br>与CountDownLatch的区别是CyclicBarrier可以多次重用。而CountDownLatch只触发一次事件。</p>
 <h4 id="DelayQueue"><a href="#DelayQueue" class="headerlink" title="DelayQueue"></a>DelayQueue</h4><p>这是一个无界的BlockingQueue，用于放置实现了Delayed接口的对象，其中的对象只能在其到期时才能从队列中取走。<br>这种队列是有序的，即队头对象的延迟到期的时间最长。如果没有任何延迟到期，那么就不会有任何头元素，并且poll()将返回null</p>
@@ -289,7 +289,7 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="hide pull-left" href="/">
+    <a class="show pull-left" href="/2017/05/05/python-learning-notes/">
         <i class="icon icon-angle-left"></i>
     </a>
     <a class="show pull-right" href="/2017/05/03/关于pip安装依赖包问题/">
@@ -371,7 +371,7 @@
               rel="noopener noreferrer"
               target="_self"
               >
-              关于
+              Me
             </a>
           </li>
         
