@@ -7,25 +7,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vue learning notes | Hexo</title>
+  <title>用户数据安全性 | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="web," />
+    <meta name="keywords" content="Eva,前端,设计,java开发,frontend,design,nodejs,JavaScript" />
   
 
-  <meta name="description" content="vue是什么  构建用户界面的渐进式框架  只关注视图层 vue的两个核心点  响应的数据绑定  组合的视图组件 虚拟DOM  运行js的速度是很快的，但是大量地操作DOM就会很慢。时常在更新数据后会重新渲染页面，这样就会造成在没有改变数据的地方重新渲染了DOM节点，这样就会造成很大程度上的资源浪费。  使用虚拟DOM（利用在内存中生成与真实DOM与之对应的数据结构），当数据发生变化时，能够智能地">
-<meta name="keywords" content="web">
+  <meta name="description" content="前言最近在网上看了一个牛客的教程，其中有一讲是讲用户数据安全性，感觉蛮实用的，在此做一下笔记。那么有哪些可以增强用户数据安全性的措施呢，列出以下几种： 1.HTTPS注册页网页的访问中，http是明文的，而https是加密过的，但后台加密需要运算会加重服务器的压力，因此早期的网站登录注册的页面使用https，其它页面用http。不过目前很多网站全栈使用https,这样也可以防止一些运行商拦截注入广">
+<meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue learning notes">
-<meta property="og:url" content="http://yoursite.com/2017/05/24/vue-learning-notes/index.html">
+<meta property="og:title" content="用户数据安全性">
+<meta property="og:url" content="http://yoursite.com/2017/07/28/User-data-security/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="vue是什么  构建用户界面的渐进式框架  只关注视图层 vue的两个核心点  响应的数据绑定  组合的视图组件 虚拟DOM  运行js的速度是很快的，但是大量地操作DOM就会很慢。时常在更新数据后会重新渲染页面，这样就会造成在没有改变数据的地方重新渲染了DOM节点，这样就会造成很大程度上的资源浪费。  使用虚拟DOM（利用在内存中生成与真实DOM与之对应的数据结构），当数据发生变化时，能够智能地">
-<meta property="og:updated_time" content="2017-07-02T12:14:22.750Z">
+<meta property="og:description" content="前言最近在网上看了一个牛客的教程，其中有一讲是讲用户数据安全性，感觉蛮实用的，在此做一下笔记。那么有哪些可以增强用户数据安全性的措施呢，列出以下几种： 1.HTTPS注册页网页的访问中，http是明文的，而https是加密过的，但后台加密需要运算会加重服务器的压力，因此早期的网站登录注册的页面使用https，其它页面用http。不过目前很多网站全栈使用https,这样也可以防止一些运行商拦截注入广">
+<meta property="og:updated_time" content="2017-07-29T16:18:32.687Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue learning notes">
-<meta name="twitter:description" content="vue是什么  构建用户界面的渐进式框架  只关注视图层 vue的两个核心点  响应的数据绑定  组合的视图组件 虚拟DOM  运行js的速度是很快的，但是大量地操作DOM就会很慢。时常在更新数据后会重新渲染页面，这样就会造成在没有改变数据的地方重新渲染了DOM节点，这样就会造成很大程度上的资源浪费。  使用虚拟DOM（利用在内存中生成与真实DOM与之对应的数据结构），当数据发生变化时，能够智能地">
+<meta name="twitter:title" content="用户数据安全性">
+<meta name="twitter:description" content="前言最近在网上看了一个牛客的教程，其中有一讲是讲用户数据安全性，感觉蛮实用的，在此做一下笔记。那么有哪些可以增强用户数据安全性的措施呢，列出以下几种： 1.HTTPS注册页网页的访问中，http是明文的，而https是加密过的，但后台加密需要运算会加重服务器的压力，因此早期的网站登录注册的页面使用https，其它页面用http。不过目前很多网站全栈使用https,这样也可以防止一些运行商拦截注入广">
 
   
 
@@ -184,20 +184,20 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue是什么"><span class="toc-text">vue是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue的两个核心点"><span class="toc-text">vue的两个核心点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟DOM"><span class="toc-text">虚拟DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVVM模式"><span class="toc-text">MVVM模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue实例"><span class="toc-text">vue实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#父子组件通信"><span class="toc-text">父子组件通信</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HTTPS注册页"><span class="toc-text">1.HTTPS注册页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-公钥加密私钥解密"><span class="toc-text">2.公钥加密私钥解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-用户密码salt防止破解"><span class="toc-text">3.用户密码salt防止破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-token有效期"><span class="toc-text">4.token有效期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-单一平台的单点登录，登录IP异常检验"><span class="toc-text">5.单一平台的单点登录，登录IP异常检验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户状态的权限判断"><span class="toc-text">用户状态的权限判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-添加验证码机制，防止爆破和批量注册"><span class="toc-text">7.添加验证码机制，防止爆破和批量注册</span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-vue-learning-notes" class="article article-type-post" itemprop="blogPost">
+   <article id="post-User-data-security" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">vue learning notes</h1>
+    <h1 class="post-title">用户数据安全性</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.05.24</span>
+        <span>2017.07.28</span>
       </span>
 
       
@@ -213,7 +213,7 @@
       
         <span>
           <i class="icon-comment"></i>
-          <a href="https://ewei001.github.io//2017/05/24/vue-learning-notes/#disqus_thread"></a>
+          <a href="https://ewei001.github.io//2017/07/28/User-data-security/#disqus_thread"></a>
         </span>
       
 
@@ -232,12 +232,14 @@
 
   <div class="article-content">
     
-      <h2 id="vue是什么"><a href="#vue是什么" class="headerlink" title="vue是什么"></a>vue是什么</h2><p>  构建用户界面的渐进式框架<br>  只关注视图层</p>
-<h2 id="vue的两个核心点"><a href="#vue的两个核心点" class="headerlink" title="vue的两个核心点"></a>vue的两个核心点</h2><p>  响应的数据绑定<br>  组合的视图组件</p>
-<h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h2><p>  运行js的速度是很快的，但是大量地操作DOM就会很慢。时常在更新数据后会重新渲染页面，这样就会造成在没有改变数据的地方重新渲染了DOM节点，这样就会造成很大程度上的资源浪费。<br>  使用虚拟DOM（利用在内存中生成与真实DOM与之对应的数据结构），当数据发生变化时，能够智能地计算出重新渲染组件的最小代价并应用到DOM操作上。</p>
-<h2 id="MVVM模式"><a href="#MVVM模式" class="headerlink" title="MVVM模式"></a>MVVM模式</h2><p>  M: Model 数据模型<br>  V: view 视图模板<br>  vm: view-Model 视图模型（完成数据绑定以及监听事件等工作）</p>
-<h2 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h2><p>  每一个应用都是通过vue这个构造函数创建根实例启动new Vue(选项对象)<br>  需传入选项对象，对象包含挂载元素，数据，模板，方法等。<br>     el: 挂载元素选择器<br>     data: 代理数据<br>     methods: 定义方法</p>
-<h2 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h2><p>  利用props绑定动态数据：简单来说，就是让子组件的某个插值，和父组件的数据保持一致。<br>  例：<add v-bind:子组件的值="父组件的属性"></add><br>  不加v-bind的，传递的是字面量，即当做字符串（例如1也是字符串，而不是number类型）；<br>  加上v-bind的，传递的是JS表达式（因此才能传递父组件的值）；<br>  加上v-bind后，如果能找到父组件的值，那么使用父组件的值；如果没有对应的，则将其看做一个js表达式（例如1+2看做3，{a:1}看做是一个对象）<br>  props的绑定类型分为两种类型，即单向绑定（父组件能影响子组件，但相反不行）和双向绑定（子组件也能影响父组件）；<br>  单向绑定：（默认，或使用.once）当父组件的值被更改后，子组件的值也随之更改；当子组件的值被更改后，父组件的值不会变化<br>  双向绑定：（需要使用“.sync”作为修饰词）无论修改父组件还是子组件的值，另外一个都会随之变动</p>
+      <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在网上看了一个牛客的教程，其中有一讲是讲用户数据安全性，感觉蛮实用的，在此做一下笔记。<br>那么有哪些可以增强用户数据安全性的措施呢，列出以下几种：</p>
+<h2 id="1-HTTPS注册页"><a href="#1-HTTPS注册页" class="headerlink" title="1.HTTPS注册页"></a>1.HTTPS注册页</h2><p>网页的访问中，http是明文的，而https是加密过的，但后台加密需要运算会加重服务器的压力，<br>因此早期的网站登录注册的页面使用https，其它页面用http。不过目前很多网站全栈使用https,这样也可以防止一些运行商拦截注入广告等操作。</p>
+<h2 id="2-公钥加密私钥解密"><a href="#2-公钥加密私钥解密" class="headerlink" title="2.公钥加密私钥解密"></a>2.公钥加密私钥解密</h2><p>如果想纯粹地加密数据<br>当用户在打开以个页面时，服务器会下发一个公钥。当填写一个密码时，会使用这个公钥和密码进行加密再提交到服务器，服务器拥有私钥因此可以进行解密。即便是信息是被他人监听了也无法解密，因为别人不知道你的私钥。服务器解密之后便可进行接下来的操作流程。<br>公钥私钥加密是当前非常安全的一个方法，目前支付宝h5页面支付密码加密就是使用的公钥私钥，只有支付宝后台自己知道私钥，其他人无法解出，因此安全等级非常高。</p>
+<h2 id="3-用户密码salt防止破解"><a href="#3-用户密码salt防止破解" class="headerlink" title="3.用户密码salt防止破解"></a>3.用户密码salt防止破解</h2><p>即密码层面加强<br>目前一些常用的加密算法，比如MD5，如果只是将纯粹的MD5加密后的字符串保存到服务器是有很大的风险的，因为有很多网站是可以破解MD5加密字符串的。因此需要通过后台给密码加上一些额外的字段，并且这些额外的字段是随机生成的，然后再通过加密算法进行加密。<br>可以将UUID取一部分作为salt</p>
+<h2 id="4-token有效期"><a href="#4-token有效期" class="headerlink" title="4.token有效期"></a>4.token有效期</h2><p>保证token不被别人一直占用<br>后台生成一个关联user的token然后下发给客户端存到本地<br>token可以使sessionid,或者是cookie里的一个key</p>
+<h2 id="5-单一平台的单点登录，登录IP异常检验"><a href="#5-单一平台的单点登录，登录IP异常检验" class="headerlink" title="5.单一平台的单点登录，登录IP异常检验"></a>5.单一平台的单点登录，登录IP异常检验</h2><p>首先说一下什么是单点登录，例如你在宿舍登陆了自己的账号，一会去了机房又去登录这个账号时，就会把宿舍的那个token给失效掉。<br>单点登录配上IP异常检验，比如你在宿舍登录了，另一个人在新加坡登陆导致你这边掉线了，可能你一下子并没有反应过来以为是网的问题，等你再次登录时，系统给出提示说你上一次在新加坡登录的，于是你很快意识到自己的密码可能泄露了，一般的用户就会立马改掉密码。</p>
+<h2 id="用户状态的权限判断"><a href="#用户状态的权限判断" class="headerlink" title="用户状态的权限判断"></a>用户状态的权限判断</h2><p>可以使用拦截器进行处理</p>
+<h2 id="7-添加验证码机制，防止爆破和批量注册"><a href="#7-添加验证码机制，防止爆破和批量注册" class="headerlink" title="7.添加验证码机制，防止爆破和批量注册"></a>7.添加验证码机制，防止爆破和批量注册</h2><p>防止一些黑客写一些恶意的代码疯狂地注册、校验密码。<br>忘记密码后校验手机验证码一般为四位到六位，比如我现在写了一份代码，可以一瞬间发起一万个请求，这一万个请求把0-9999所有可能的验证码都发到服务器上，你的服务器收到这些请求后总有一个是对的上的，这样就很不安全了。<br>这种情况下服务器就需要做校验，如果有一次验证码验证失效，token就必须重发，且两次不可以一样，，机制与登录注册是一样的。一旦出现错误就给出一些惩罚措施，比如该IP不能继续注册等等。</p>
 
     
   </div>
@@ -268,10 +270,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/07/08/learning-play-framework/">
+    <a class="hide pull-left" href="/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/05/05/python-learning-notes/">
+    <a class="show pull-right" href="/2017/07/08/learning-play-framework/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -396,7 +398,7 @@
   <script>
     var disqus_shortname = 'Ewei001';
     
-    var disqus_url = 'http://yoursite.com/2017/05/24/vue-learning-notes/';
+    var disqus_url = 'http://yoursite.com/2017/07/28/User-data-security/';
     
     (function(){
       var dsq = document.createElement('script');

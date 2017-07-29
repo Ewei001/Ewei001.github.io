@@ -7,25 +7,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vue learning notes | Hexo</title>
+  <title>learning play framework | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="web," />
+    <meta name="keywords" content="JavaEE," />
   
 
-  <meta name="description" content="vue是什么  构建用户界面的渐进式框架  只关注视图层 vue的两个核心点  响应的数据绑定  组合的视图组件 虚拟DOM  运行js的速度是很快的，但是大量地操作DOM就会很慢。时常在更新数据后会重新渲染页面，这样就会造成在没有改变数据的地方重新渲染了DOM节点，这样就会造成很大程度上的资源浪费。  使用虚拟DOM（利用在内存中生成与真实DOM与之对应的数据结构），当数据发生变化时，能够智能地">
-<meta name="keywords" content="web">
+  <meta name="description" content="play framework ����play���ܵ߸���ӷ�׵���ҵ��JavaEE�淶����RestfulΪĿ�겢רע�ڿ���Ч�ʣ���Java���ݿ��������Ѳο�������������ֻҪ�߱�Java�Լ����ݿ������ػ���֪ʶ�Ϳ����������֣��Ӷ���webӦ�ÿ������ø������ף�������Ŀ�߻��ٶȡ���Ϊfull sta">
+<meta name="keywords" content="JavaEE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue learning notes">
-<meta property="og:url" content="http://yoursite.com/2017/05/24/vue-learning-notes/index.html">
+<meta property="og:title" content="learning play framework">
+<meta property="og:url" content="http://yoursite.com/2017/07/08/learning-play-framework/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="vue是什么  构建用户界面的渐进式框架  只关注视图层 vue的两个核心点  响应的数据绑定  组合的视图组件 虚拟DOM  运行js的速度是很快的，但是大量地操作DOM就会很慢。时常在更新数据后会重新渲染页面，这样就会造成在没有改变数据的地方重新渲染了DOM节点，这样就会造成很大程度上的资源浪费。  使用虚拟DOM（利用在内存中生成与真实DOM与之对应的数据结构），当数据发生变化时，能够智能地">
-<meta property="og:updated_time" content="2017-07-02T12:14:22.750Z">
+<meta property="og:description" content="play framework ����play���ܵ߸���ӷ�׵���ҵ��JavaEE�淶����RestfulΪĿ�겢רע�ڿ���Ч�ʣ���Java���ݿ��������Ѳο�������������ֻҪ�߱�Java�Լ����ݿ������ػ���֪ʶ�Ϳ����������֣��Ӷ���webӦ�ÿ������ø������ף�������Ŀ�߻��ٶȡ���Ϊfull sta">
+<meta property="og:updated_time" content="2017-07-09T12:57:52.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue learning notes">
-<meta name="twitter:description" content="vue是什么  构建用户界面的渐进式框架  只关注视图层 vue的两个核心点  响应的数据绑定  组合的视图组件 虚拟DOM  运行js的速度是很快的，但是大量地操作DOM就会很慢。时常在更新数据后会重新渲染页面，这样就会造成在没有改变数据的地方重新渲染了DOM节点，这样就会造成很大程度上的资源浪费。  使用虚拟DOM（利用在内存中生成与真实DOM与之对应的数据结构），当数据发生变化时，能够智能地">
+<meta name="twitter:title" content="learning play framework">
+<meta name="twitter:description" content="play framework ����play���ܵ߸���ӷ�׵���ҵ��JavaEE�淶����RestfulΪĿ�겢רע�ڿ���Ч�ʣ���Java���ݿ��������Ѳο�������������ֻҪ�߱�Java�Լ����ݿ������ػ���֪ʶ�Ϳ����������֣��Ӷ���webӦ�ÿ������ø������ף�������Ŀ�߻��ٶȡ���Ϊfull sta">
 
   
 
@@ -184,20 +184,20 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue是什么"><span class="toc-text">vue是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue的两个核心点"><span class="toc-text">vue的两个核心点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟DOM"><span class="toc-text">虚拟DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVVM模式"><span class="toc-text">MVVM模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue实例"><span class="toc-text">vue实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#父子组件通信"><span class="toc-text">父子组件通信</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#play-framework-����"><span class="toc-text">play framework ����</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#play��L��L¼�u"><span class="toc-text">play��Ŀ��Ŀ¼�ṹ</span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-vue-learning-notes" class="article article-type-post" itemprop="blogPost">
+   <article id="post-learning-play-framework" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">vue learning notes</h1>
+    <h1 class="post-title">learning play framework</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.05.24</span>
+        <span>2017.07.08</span>
       </span>
 
       
@@ -213,7 +213,7 @@
       
         <span>
           <i class="icon-comment"></i>
-          <a href="https://ewei001.github.io//2017/05/24/vue-learning-notes/#disqus_thread"></a>
+          <a href="https://ewei001.github.io//2017/07/08/learning-play-framework/#disqus_thread"></a>
         </span>
       
 
@@ -232,12 +232,11 @@
 
   <div class="article-content">
     
-      <h2 id="vue是什么"><a href="#vue是什么" class="headerlink" title="vue是什么"></a>vue是什么</h2><p>  构建用户界面的渐进式框架<br>  只关注视图层</p>
-<h2 id="vue的两个核心点"><a href="#vue的两个核心点" class="headerlink" title="vue的两个核心点"></a>vue的两个核心点</h2><p>  响应的数据绑定<br>  组合的视图组件</p>
-<h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h2><p>  运行js的速度是很快的，但是大量地操作DOM就会很慢。时常在更新数据后会重新渲染页面，这样就会造成在没有改变数据的地方重新渲染了DOM节点，这样就会造成很大程度上的资源浪费。<br>  使用虚拟DOM（利用在内存中生成与真实DOM与之对应的数据结构），当数据发生变化时，能够智能地计算出重新渲染组件的最小代价并应用到DOM操作上。</p>
-<h2 id="MVVM模式"><a href="#MVVM模式" class="headerlink" title="MVVM模式"></a>MVVM模式</h2><p>  M: Model 数据模型<br>  V: view 视图模板<br>  vm: view-Model 视图模型（完成数据绑定以及监听事件等工作）</p>
-<h2 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h2><p>  每一个应用都是通过vue这个构造函数创建根实例启动new Vue(选项对象)<br>  需传入选项对象，对象包含挂载元素，数据，模板，方法等。<br>     el: 挂载元素选择器<br>     data: 代理数据<br>     methods: 定义方法</p>
-<h2 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h2><p>  利用props绑定动态数据：简单来说，就是让子组件的某个插值，和父组件的数据保持一致。<br>  例：<add v-bind:子组件的值="父组件的属性"></add><br>  不加v-bind的，传递的是字面量，即当做字符串（例如1也是字符串，而不是number类型）；<br>  加上v-bind的，传递的是JS表达式（因此才能传递父组件的值）；<br>  加上v-bind后，如果能找到父组件的值，那么使用父组件的值；如果没有对应的，则将其看做一个js表达式（例如1+2看做3，{a:1}看做是一个对象）<br>  props的绑定类型分为两种类型，即单向绑定（父组件能影响子组件，但相反不行）和双向绑定（子组件也能影响父组件）；<br>  单向绑定：（默认，或使用.once）当父组件的值被更改后，子组件的值也随之更改；当子组件的值被更改后，父组件的值不会变化<br>  双向绑定：（需要使用“.sync”作为修饰词）无论修改父组件还是子组件的值，另外一个都会随之变动</p>
+      <h2 id="play-framework-����"><a href="#play-framework-����" class="headerlink" title="play framework ����"></a>play framework ����</h2><p>play���ܵ߸���ӷ�׵���ҵ��JavaEE�淶����RestfulΪĿ�겢רע�ڿ���Ч�ʣ���Java���ݿ��������Ѳο�������<br>������ֻҪ�߱�Java�Լ����ݿ������ػ���֪ʶ�Ϳ����������֣��Ӷ���webӦ�ÿ������ø������ף�������Ŀ�߻��ٶȡ�<br>��Ϊfull stack��Java webӦ�ÿ��ܣ�play���ܰ��������п������漰��������NIOӦ����������״̬MVCģ�ͣ�Hibernate���ݳ־û���Groovyģ�����棬<br>�Լ�����webӦ������Ҫ�ĸ��ֹ����ࡣ��Ҫע�����ǣ�������Ȼʹ����Groovy����ֻ�ǽ�����Ϊҳ��ģ�����ԣ�<br>��Freemaker��velocityʹ���Լ�������������ͬ���ĵ�����Groovy�ĳ����Լ�����Java�������Ծ����˲���GroovyԶԶ���ڶ����Լ���ģ�����ԡ�</p>
+<p>����״̬��һ��ָ���Ƿ������˲������κβ�����������״̬��Ҳ���������ƻع��Ĳ�����</p>
+<p>##play �����ܽ�<br>�Զ����������أ����༭Java�ļ�����������ˢ�����������������鿴������ʹ��Play��������Ҫ�ֶ����롢�����Լ���������Web�������Ȳ�����<br>1.��״̬ģ�ͣ�Play���������޹������ܣ�ΪREST��׼���������Խ�ͬһ��Ӧ�õĶ���ʵ���ֱ������ڶ�̨�������ϣ�������չ�Էǳ�ǿ��<br>2.��Ч��ģ�����棺���ڱ���ʽ����Groovy������ģ�����棬�ṩ��ģ���ļ̳С������Լ���ǩ�Զ����ȹ��ܡ�<br>3.���ٽ������󣺵���������ʱ��Play��������������ʾ���������鲢��ʾ���ⷢ����ȷ��λ�á�<br>4.Full Stack:�ṩ����WebӦ��������ȫ�����ܣ�������Hibernate��OpenID��Memcached�ȵ��������⡣<br>5.��Java��Play����Java��д���룬���Է�����ʹ���κ�Java���⣬�����ܹ��ǳ��õغ�Eclipse��Netbeans��IDE���ɣ�ֻ��ͨ����������ƥ������Ŀ�ļ����ɡ�<br>6.���ڷ�������IOģ�ͣ������������ڳ���ѯ��WebSocket������WebӦ�á�<br>7.��Ȥ���Ҹ�Ч��ʡȥ��JavaӦ��������ʱ�䣬������Ӧ�õĿ���Ч�ʡ�</p>
+<h2 id="play��L��L¼�u"><a href="#play��L��L¼�u" class="headerlink" title="play��Ŀ��Ŀ¼�ṹ"></a>play��Ŀ��Ŀ¼�ṹ</h2><p>app/: ������Ӧ�õĺ��Ĳ��֣�Ĭ�Ϸ�ΪmodelS,controllers,views������Ŀ¼����ȻҲ�ܹ�����������Java����<br>conf/: ������Ӧ�õ����������ļ����ر����������ļ�application.conf,d;����·�ɹ����������ļ�routes�����ڹ��ʻ����õ��ļ�messages��<br>lib/: ���������п�ѡ�ı�׼Java����<br>public/: ���������й�����Դ����Ҫ��javascripts��stylesheets��images������Ŀ¼��<br>test/: ���������е�Ӧ�ò��ԣ����ܼ�����JUnit��Selenium���Թ��ߡ�</p>
+<p>ps:play����ʹ��utf-8��Ϊ��Ψһ�ı��롣<br>ps:play�����е�Action���������붨��Ϊpublic static void����Ϊ�������������ᱻʵ��������ʶpublic��Ϊ����Ȩ������URL��Ӧʱ����Action���������ҷ��ؽ�������void��</p>
 
     
   </div>
@@ -268,10 +267,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/07/08/learning-play-framework/">
+    <a class="show pull-left" href="/2017/07/28/User-data-security/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/05/05/python-learning-notes/">
+    <a class="show pull-right" href="/2017/05/24/vue-learning-notes/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -396,7 +395,7 @@
   <script>
     var disqus_shortname = 'Ewei001';
     
-    var disqus_url = 'http://yoursite.com/2017/05/24/vue-learning-notes/';
+    var disqus_url = 'http://yoursite.com/2017/07/08/learning-play-framework/';
     
     (function(){
       var dsq = document.createElement('script');
