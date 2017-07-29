@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/08/learning-play-framework/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="play framework 简介play框架颠覆了臃肿的企业级JavaEE规范，以Restful为目标并专注于开发效率，是Java敏捷开发的最佳参考方案。开发者只要具备Java以及数据库的相关基础知识就可以轻松上手，从而让web应用开发变得更加容易，提高项目催化速度。作为full stack的Java web应用框架，play框架包括了所有开发中涉及的领域：NIO应用容器，无状态MVC模型，Hi">
-<meta property="og:updated_time" content="2017-07-29T16:21:06.388Z">
+<meta property="og:updated_time" content="2017-07-29T16:23:35.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="learning play framework">
 <meta name="twitter:description" content="play framework 简介play框架颠覆了臃肿的企业级JavaEE规范，以Restful为目标并专注于开发效率，是Java敏捷开发的最佳参考方案。开发者只要具备Java以及数据库的相关基础知识就可以轻松上手，从而让web应用开发变得更加容易，提高项目催化速度。作为full stack的Java web应用框架，play框架包括了所有开发中涉及的领域：NIO应用容器，无状态MVC模型，Hi">
@@ -184,7 +184,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#play-framework-简介"><span class="toc-text">play framework 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#play项目的目录结构"><span class="toc-text">play项目的目录结构</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#play-framework-简介"><span class="toc-text">play framework 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#play-特性总结"><span class="toc-text">play 特性总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#play项目的目录结构"><span class="toc-text">play项目的目录结构</span></a></li></ol>
   </div>
 
 
@@ -234,7 +234,7 @@
     
       <h2 id="play-framework-简介"><a href="#play-framework-简介" class="headerlink" title="play framework 简介"></a>play framework 简介</h2><p>play框架颠覆了臃肿的企业级JavaEE规范，以Restful为目标并专注于开发效率，是Java敏捷开发的最佳参考方案。<br>开发者只要具备Java以及数据库的相关基础知识就可以轻松上手，从而让web应用开发变得更加容易，提高项目催化速度。<br>作为full stack的Java web应用框架，play框架包括了所有开发中涉及的领域：NIO应用容器，无状态MVC模型，Hibernate数据持久化，Groovy模板引擎，<br>以及建立web应用所需要的各种工具类。需要注意的是，这里虽然使用了Groovy，但只是将其作为页面模板语言，<br>和Freemaker，velocity使用自己定义的语言是同样的道理。Groovy的成熟以及它和Java的相似性决定了采用Groovy远远好于定义自己的模板语言。</p>
 <p>（无状态：一般指的是服务器端不保留任何操作和事务的状态，也不存在类似回滚的操作）</p>
-<p>##play 特性总结<br>自动编译和重载：当编辑Java文件并保存后，刷新浏览器就能立即查看结果。使用Play开发不需要手动编译、部署以及重新启动Web服务器等操作。<br>1.无状态模型：Play是真正的无共享框架，为REST而准备。它可以将同一个应用的多个实例分别部署在多台服务器上，因而扩展性非常强。<br>2.高效的模板引擎：基于表达式语言Groovy的清晰模板引擎，提供了模板的继承、导入以及标签自定义等功能。<br>3.快速解决错误：当错误发生时，Play会在浏览器中显示出错代码块并提示问题发生的确切位置。<br>4.Full Stack:提供创建Web应用所需的全部功能，集成了Hibernate、OpenID、Memcached等第三方类库。<br>5.纯Java：Play采用Java编写代码，可以方便地使用任何Java类库，并且能够非常好地和Eclipse、Netbeans等IDE集成，只需通过命令生成匹配的项目文件即可。<br>6.基于非阻塞的IO模型：允许创建基于长轮询和WebSocket的主流Web应用。<br>7.有趣并且高效：省去了Java应用重启的时间，提高了应用的开发效率。</p>
+<h2 id="play-特性总结"><a href="#play-特性总结" class="headerlink" title="play 特性总结"></a>play 特性总结</h2><p>自动编译和重载：当编辑Java文件并保存后，刷新浏览器就能立即查看结果。使用Play开发不需要手动编译、部署以及重新启动Web服务器等操作。<br>1.无状态模型：Play是真正的无共享框架，为REST而准备。它可以将同一个应用的多个实例分别部署在多台服务器上，因而扩展性非常强。<br>2.高效的模板引擎：基于表达式语言Groovy的清晰模板引擎，提供了模板的继承、导入以及标签自定义等功能。<br>3.快速解决错误：当错误发生时，Play会在浏览器中显示出错代码块并提示问题发生的确切位置。<br>4.Full Stack:提供创建Web应用所需的全部功能，集成了Hibernate、OpenID、Memcached等第三方类库。<br>5.纯Java：Play采用Java编写代码，可以方便地使用任何Java类库，并且能够非常好地和Eclipse、Netbeans等IDE集成，只需通过命令生成匹配的项目文件即可。<br>6.基于非阻塞的IO模型：允许创建基于长轮询和WebSocket的主流Web应用。<br>7.有趣并且高效：省去了Java应用重启的时间，提高了应用的开发效率。</p>
 <h2 id="play项目的目录结构"><a href="#play项目的目录结构" class="headerlink" title="play项目的目录结构"></a>play项目的目录结构</h2><p>app/: 包含了应用的核心部分，默认分为modelS,controllers,views三个子目录，当然也能够包含其他的Java包。<br>conf/: 包含了应用的所有配置文件，特别是主配置文件application.conf,d;定义路由规则的配置文件routes和用于国际化配置的文件messages。<br>lib/: 包含了所有可选的标准Java类库<br>public/: 包含了所有公用资源，主要有javascripts，stylesheets和images三个子目录。<br>test/: 包含了所有的应用测试，框架集成了JUnit和Selenium测试工具。</p>
 <p>ps:play框架使用utf-8作为其唯一的编码。<br>ps:play中所有的Action方法都必须定义为public static void。因为控制器从来不会被实例化。标识public是为了授权框架在URL响应时调用Action方法，并且返回结果总是void。</p>
 
