@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>《Effctive Java》读书笔记（一） | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Java," />
+  
+
+  <meta name="description" content="本书大部分内容都不是讨论性能的，而是关心如何编写出清晰、正确、可用、健壮、灵活和可维护的程序来。如果你能做到这一点，那么想要获得所需要的性能往往就相对比较简单了。 第1条 考虑用静态工厂方法代替构造器第2条 遇到多个构造器参数时要考虑用构建器静态工厂和构造器有个共同的局限性：他们都不能扩展到大量的可选参数。举个书中的例子：考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的：">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Effctive Java》读书笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2017/08/02/Effctive-Java-Reading-notes/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本书大部分内容都不是讨论性能的，而是关心如何编写出清晰、正确、可用、健壮、灵活和可维护的程序来。如果你能做到这一点，那么想要获得所需要的性能往往就相对比较简单了。 第1条 考虑用静态工厂方法代替构造器第2条 遇到多个构造器参数时要考虑用构建器静态工厂和构造器有个共同的局限性：他们都不能扩展到大量的可选参数。举个书中的例子：考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的：">
+<meta property="og:updated_time" content="2017-08-15T10:52:32.637Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Effctive Java》读书笔记（一）">
+<meta name="twitter:description" content="本书大部分内容都不是讨论性能的，而是关心如何编写出清晰、正确、可用、健壮、灵活和可维护的程序来。如果你能做到这一点，那么想要获得所需要的性能往往就相对比较简单了。 第1条 考虑用静态工厂方法代替构造器第2条 遇到多个构造器参数时要考虑用构建器静态工厂和构造器有个共同的局限性：他们都不能扩展到大量的可选参数。举个书中的例子：考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的：">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            Me
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第1条-考虑用静态工厂方法代替构造器"><span class="toc-text">第1条 考虑用静态工厂方法代替构造器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第2条-遇到多个构造器参数时要考虑用构建器"><span class="toc-text">第2条 遇到多个构造器参数时要考虑用构建器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第5条-避免创建不必要的对象"><span class="toc-text">第5条 避免创建不必要的对象</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Effctive-Java-Reading-notes" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">《Effctive Java》读书笔记（一）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.08.02</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Ewei001</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="https://ewei001.github.io//2017/08/02/Effctive-Java-Reading-notes/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>本书大部分内容都不是讨论性能的，而是关心如何编写出清晰、正确、可用、健壮、灵活和可维护的程序来。如果你能做到这一点，那么想要获得所需要的性能往往就相对比较简单了。</p>
+<h2 id="第1条-考虑用静态工厂方法代替构造器"><a href="#第1条-考虑用静态工厂方法代替构造器" class="headerlink" title="第1条 考虑用静态工厂方法代替构造器"></a>第1条 考虑用静态工厂方法代替构造器</h2><h2 id="第2条-遇到多个构造器参数时要考虑用构建器"><a href="#第2条-遇到多个构造器参数时要考虑用构建器" class="headerlink" title="第2条 遇到多个构造器参数时要考虑用构建器"></a>第2条 遇到多个构造器参数时要考虑用构建器</h2><p>静态工厂和构造器有个共同的局限性：他们都不能扩展到大量的可选参数。举个书中的例子：<br>考虑用一个类表示包装食品外面显示的营养成分标签。这些标签中有几个域是必须的：每份的含量、每份的卡路里，还有超过20个可选域：总脂肪量、饱和脂肪量、转化脂肪、胆固醇等等。大多数产品在可选域中都会有非零值。<br>对于这样的类，程序员一向习惯采用重叠构造器模式，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class NutritionFacts&#123;</div><div class="line">	private final int servingSize;</div><div class="line">	private final int calories;</div><div class="line">	private final int fat;</div><div class="line">	private final int sodium;</div><div class="line">	private final int carbohydrate;</div><div class="line">	</div><div class="line">	public NutritionFacts(int servingSize, int calories)&#123;</div><div class="line">		this(servingSize, calories, 0);</div><div class="line">	&#125;</div><div class="line">	public NutritionFacts(int servingSize, int calories, int fat)&#123;</div><div class="line">		this(servingSize, calories, 0);</div><div class="line">	&#125;</div><div class="line">	public NutritionFacts(int servingSize, int calories, int fat, int sodium)&#123;</div><div class="line">		this(servingSize, calories, 0);</div><div class="line">	&#125;</div><div class="line">	public NutritionFacts(int servingSize, int calories, int fat, int sodium, int carbohydrate)&#123;</div><div class="line">		this.servingSize = servingSize;</div><div class="line">		this.calories = calories;</div><div class="line">		this.fat = fat;</div><div class="line">		this.sodium = sodium;</div><div class="line">		this.carbohydrate = carbohydrate;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当你想要创建实例的时候，就利用参数列表最短的构造器，但该列表中包含了要设置的所有参数：<br>NutritionFacts cocaCola = new NutritionFacts(240, 8, 100, 25, 28);<br>这个构造器调用通常需要很多你本不想设置的参数，但还是不得不为他们传递值。如果仅仅是这5个参数，看起来还不算太糟，问题是随着参数数目的增加，它很快就会失去控制。<br>重叠构造器模式可行，但是当有许多参数的时候，客户端代码会很难编写，并且较难阅读。<br>第二种替代方法：JavaBeans模式，虽然弥补了重叠构造器模式的不足，有较好的可读性，但是自身也有很严重的缺点，在此不多花文字描述，想了解可自行搜索。<br>第三种，Builder模式，既能保证像重叠构造器那样的安全性，也能保证像JavaBean那么好的可读性。<br>Builder模式不直接生成想要的对象，而是让客户端利用所有必要的参数调用构造器（或者静态工厂），得到一个builder对象，然后客户端在builder对象上调用类似于setter的方法，来设置每个相关的可选参数。<br>最后，客户端调用无参的build方法来生成不可变的对象。这个builder是它构建的类的静态成员类，示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">public class NutritionFacts &#123;</div><div class="line">	private final int servingSize;</div><div class="line">	private final int calories;</div><div class="line">	private final int fat;</div><div class="line">	private final int sodium;</div><div class="line">	private final int carbohydrate;</div><div class="line">	</div><div class="line">	public static class Builder &#123;</div><div class="line">		//required parameters</div><div class="line">		private final int servingSize;</div><div class="line">		private final int calories;</div><div class="line">		</div><div class="line">		//Optional parameters, initialized to default values</div><div class="line">		private final int fat = 0;</div><div class="line">		private final int sodium = 0;</div><div class="line">		private final int carbohydrate = 0;</div><div class="line">		</div><div class="line">		public Builder fat(int val)&#123;</div><div class="line">			fat = val;</div><div class="line">			return this;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		public Builder sodium(int val)&#123;</div><div class="line">			fat = val;</div><div class="line">			return this;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		public Builder carbohydrate(int val)&#123;</div><div class="line">			carbohydrate = val;</div><div class="line">			return this;</div><div class="line">		&#125;</div><div class="line">		public NutritionFacts build()&#123;</div><div class="line">			return new NutritionFacts(this);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	private NutritionFacts(Builder builder)&#123;</div><div class="line">		servingSize = builder.servingSize;</div><div class="line">		calories = builder.calories;</div><div class="line">		fat = builder.fat;</div><div class="line">		sodium = builder.sodium;</div><div class="line">		carbohydrate = builder.carbohydrate;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意NutritionFacts是不可变的，所有的默认参数值都单独放在一个地方，builder的setter方法返回builder本身，以便把调用链连起来：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NutritionFacts cocaCola = new NutritionFacts.builder(240, 8).calories(100).sodium(20).carbohydrate(30).build();</div></pre></td></tr></table></figure></p>
+<p>与构造器相比，builder的略微优势在于，builder可以有多个可变参数。构造器就像方法一样，只能有一个可变参数。因为builder利用单独的方法来设置每个参数，你想要多少个可变参数，它们就可以有多少个，知道每个方法都有一个可变参数。<br>Builder模式十分灵活，可以利用单个builder构建多个对象，builder的参数可以在创建对象期间进行调整，也可以随着不同的对象而改变。builder可以自动填充某些域，例如每次创建对象时自动增加序列号。<br>简而言之，如果类的构造器或者静态工厂中具有多个参数，设计这种类时，Builder模式就是中不错的选择，特别当大多数参数都是可选的时候。</p>
+<h2 id="第5条-避免创建不必要的对象"><a href="#第5条-避免创建不必要的对象" class="headerlink" title="第5条 避免创建不必要的对象"></a>第5条 避免创建不必要的对象</h2>
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Eva</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="hide pull-left" href="/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/07/28/User-data-security/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              Me
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'Ewei001';
+    
+    var disqus_url = 'http://yoursite.com/2017/08/02/Effctive-Java-Reading-notes/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//Ewei001.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
