@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于List和Set问题 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Java," />
+  
+
+  <meta name="description" content="今天做了一个比较简单的题（LeetCode 349），写完后惯性地去了discuss看了下别人的分享，发现原本以为时间复杂度都是o(n)的算法，一个是o(n),一个是o(nlogn),两种方法具体如下可以看我提交在GitHub上的代码。 如果说第二种方法因为Array.sort()方法时间复杂度为o(nlogn), 那第一种方法在for循环中调用set.contains()查询是不应该是o(n^2">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于List和Set问题">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/The-efficiency-of-List-and-Set/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今天做了一个比较简单的题（LeetCode 349），写完后惯性地去了discuss看了下别人的分享，发现原本以为时间复杂度都是o(n)的算法，一个是o(n),一个是o(nlogn),两种方法具体如下可以看我提交在GitHub上的代码。 如果说第二种方法因为Array.sort()方法时间复杂度为o(nlogn), 那第一种方法在for循环中调用set.contains()查询是不应该是o(n^2">
+<meta property="og:updated_time" content="2017-08-21T12:11:12.400Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于List和Set问题">
+<meta name="twitter:description" content="今天做了一个比较简单的题（LeetCode 349），写完后惯性地去了discuss看了下别人的分享，发现原本以为时间复杂度都是o(n)的算法，一个是o(n),一个是o(nlogn),两种方法具体如下可以看我提交在GitHub上的代码。 如果说第二种方法因为Array.sort()方法时间复杂度为o(nlogn), 那第一种方法在for循环中调用set.contains()查询是不应该是o(n^2">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            Me
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#List接口下有三个子类，分别是ArrayList、LinkedList、Vector"><span class="toc-text">List接口下有三个子类，分别是ArrayList、LinkedList、Vector</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList"><span class="toc-text">ArrayList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LinkedList"><span class="toc-text">LinkedList</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vector"><span class="toc-text">Vector</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set接口下的子类有HashSet和TreeSet。"><span class="toc-text">Set接口下的子类有HashSet和TreeSet。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HashSet"><span class="toc-text">HashSet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TreeSet"><span class="toc-text">TreeSet</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-The-efficiency-of-List-and-Set" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">关于List和Set问题</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.08.20</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Ewei001</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="https://ewei001.github.io//2017/08/20/The-efficiency-of-List-and-Set/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>今天做了一个比较简单的题（LeetCode 349），写完后惯性地去了discuss看了下别人的分享，发现原本以为时间复杂度都是o(n)的算法，一个是o(n),一个是o(nlogn),两种方法具体如下可以看我<a href="https://github.com/Ewei001/myLeetCode/blob/master/349.IntersectionOfTwoArrays.txt" target="_blank" rel="external">提交在GitHub上的代码</a>。</p>
+<p>如果说第二种方法因为Array.sort()方法时间复杂度为o(nlogn), 那第一种方法在for循环中调用set.contains()查询是不应该是o(n^2)吗，答案当然是否定的~<br>说一下个人理解：<br>HashSet中使用的是哈希表查找，通过hashcode方法可以直接映射到存储的位置，因此搜索方法时间复杂度是o(1)<br>而List需要遍历逐个比对值是否相同，因此效率要低一些。</p>
+<p>借此机会回顾一下List与Set：<br>首先List与Set都是Collection的子类接口。List接口的子类集合是有序集合，可以根据下标对集合元素进行操作，可以存在相同的元素。而Set接口的子类集合是无序的，且不允许存在相同的元素。</p>
+<h3 id="List接口下有三个子类，分别是ArrayList、LinkedList、Vector"><a href="#List接口下有三个子类，分别是ArrayList、LinkedList、Vector" class="headerlink" title="List接口下有三个子类，分别是ArrayList、LinkedList、Vector"></a>List接口下有三个子类，分别是ArrayList、LinkedList、Vector</h3><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>ArrayList底层是数组结构，所以如果数据较大查询的效率较高，但也正因如此，他每次添加或者删除元素，都要移动很多元素，相当于重建了一个数组，所以如果集合中频繁有增删操作，建议使用LinkedList。当然也不排除特殊情况，比如每次remove的都是最后一个元素，这种情况就应当使用ArrayList，因为这时LinkedList的查询效率很低。<br>线程不同步。方法基本都继承自List。</p>
+<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><p>LinkedList底层是链表结构，每一个元素都是跟自己前一个和后一个元素发生关系，所以他的增删操作只需要改变与其位置相关联的两个元素关系即可，所以效率比较高，但是如果通过下标查询的话就要从0开始计算，所以如果集合中频繁有查询操作，建议使用ArrayList。<br>线程不同步。因为底层结构的不同，所以LinkedList有自己的特有方法来增加效率（具体方法请自行查询）。</p>
+<h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h4><p>Vector同ArrayList，底层都是数组结构，但是不同的是Vector是线程同步的，在一般情况下会大大降低效率。所以使用较少。但是Vector特有的取出方式枚举需要说一下。在IO流中的合并流SequenceInputStream中会用到。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Vector vec = new Vector();</div><div class="line">Enumeration e = vec.elements();</div><div class="line">while(e.hasMoreElements())&#123;</div><div class="line">    System.out.println(e.nextElements());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Set接口下的子类有HashSet和TreeSet。"><a href="#Set接口下的子类有HashSet和TreeSet。" class="headerlink" title="Set接口下的子类有HashSet和TreeSet。"></a>Set接口下的子类有HashSet和TreeSet。</h3><h4 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h4><p>HashSet的底层结构是哈希表（实际上是一个HashMap实例）。HashSet集合是通过元素中继承自Object超类的hashCode()方法和equal()方法来判断两个对象是否相同的。通过hashCode方法可以避免每次添加都需要equals的繁琐过程。所以我们在自己定义对象的时候，可以覆写对象继承自Object的这两个方法，使他们按照我们的意志来判断两个元素是否是同一元素。<br>HashSet是根据哈希值的范围来提高查找效率，如果对象的属性参与hashCode计算，就要谨慎去修改。因为如果修改了该属性，该对象的哈希值就会改变，以后要删除该对象的时候，该对象在HashSet中的索引与现在的哈希值不匹配，就会找不到该元素，他的声明周期会随着HashSet的结束而结束，造成内存泄露。<br>这里可以看<a href="http://blog.csdn.net/wuqingyidongren/article/details/51556282" target="_blank" rel="external">另一篇博客</a></p>
+<h4 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h4><p>TreeSet集合的底层是二叉树数据结构。他不仅不允许相同元素存在，更可以帮我们排序。我们将元素存入TreeSet集合之后他是按照自然顺序排序的。而我们要想让元素按照我们的意志进行排序，让元素实现Comparable接口，然后实现里面的CompareTo方法，返回0则代表元素相同，否则根据正数或者负数来判断排列顺序。</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持Eva</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="hide pull-left" href="/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/08/02/Effctive-Java-Reading-notes/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              Me
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'Ewei001';
+    
+    var disqus_url = 'http://yoursite.com/2017/08/20/The-efficiency-of-List-and-Set/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//Ewei001.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
