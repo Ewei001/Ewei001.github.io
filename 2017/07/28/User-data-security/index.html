@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/28/User-data-security/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前言最近在网上看了一个牛客的教程，其中有一讲是讲用户数据安全性，感觉蛮实用的，在此做一下笔记。那么有哪些可以增强用户数据安全性的措施呢，列出以下几种： 1.HTTPS注册页网页的访问中，http是明文的，而https是加密过的，但后台加密需要运算会加重服务器的压力，因此早期的网站登录注册的页面使用https，其它页面用http。不过目前很多网站全栈使用https,这样也可以防止一些运行商拦截注入广">
-<meta property="og:updated_time" content="2017-07-29T16:18:32.687Z">
+<meta property="og:updated_time" content="2018-11-11T16:56:06.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用户数据安全性">
 <meta name="twitter:description" content="前言最近在网上看了一个牛客的教程，其中有一讲是讲用户数据安全性，感觉蛮实用的，在此做一下笔记。那么有哪些可以增强用户数据安全性的措施呢，列出以下几种： 1.HTTPS注册页网页的访问中，http是明文的，而https是加密过的，但后台加密需要运算会加重服务器的压力，因此早期的网站登录注册的页面使用https，其它页面用http。不过目前很多网站全栈使用https,这样也可以防止一些运行商拦截注入广">
@@ -184,7 +184,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HTTPS注册页"><span class="toc-text">1.HTTPS注册页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-公钥加密私钥解密"><span class="toc-text">2.公钥加密私钥解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-用户密码salt防止破解"><span class="toc-text">3.用户密码salt防止破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-token有效期"><span class="toc-text">4.token有效期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-单一平台的单点登录，登录IP异常检验"><span class="toc-text">5.单一平台的单点登录，登录IP异常检验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户状态的权限判断"><span class="toc-text">用户状态的权限判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-添加验证码机制，防止爆破和批量注册"><span class="toc-text">7.添加验证码机制，防止爆破和批量注册</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HTTPS注册页"><span class="toc-text">1.HTTPS注册页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-公钥加密私钥解密"><span class="toc-text">2.公钥加密私钥解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-用户密码salt防止破解"><span class="toc-text">3.用户密码salt防止破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-token有效期"><span class="toc-text">4.token有效期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-单一平台的单点登录，登录IP异常检验"><span class="toc-text">5.单一平台的单点登录，登录IP异常检验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-用户状态的权限判断"><span class="toc-text">6.用户状态的权限判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-添加验证码机制，防止爆破和批量注册"><span class="toc-text">7.添加验证码机制，防止爆破和批量注册</span></a></li></ol>
   </div>
 
 
@@ -238,7 +238,7 @@
 <h2 id="3-用户密码salt防止破解"><a href="#3-用户密码salt防止破解" class="headerlink" title="3.用户密码salt防止破解"></a>3.用户密码salt防止破解</h2><p>即密码层面加强<br>目前一些常用的加密算法，比如MD5，如果只是将纯粹的MD5加密后的字符串保存到服务器是有很大的风险的，因为有很多网站是可以破解MD5加密字符串的。因此需要通过后台给密码加上一些额外的字段，并且这些额外的字段是随机生成的，然后再通过加密算法进行加密。<br>可以将UUID取一部分作为salt</p>
 <h2 id="4-token有效期"><a href="#4-token有效期" class="headerlink" title="4.token有效期"></a>4.token有效期</h2><p>保证token不被别人一直占用<br>后台生成一个关联user的token然后下发给客户端存到本地<br>token可以使sessionid,或者是cookie里的一个key</p>
 <h2 id="5-单一平台的单点登录，登录IP异常检验"><a href="#5-单一平台的单点登录，登录IP异常检验" class="headerlink" title="5.单一平台的单点登录，登录IP异常检验"></a>5.单一平台的单点登录，登录IP异常检验</h2><p>首先说一下什么是单点登录，例如你在宿舍登陆了自己的账号，一会去了机房又去登录这个账号时，就会把宿舍的那个token给失效掉。<br>单点登录配上IP异常检验，比如你在宿舍登录了，另一个人在新加坡登陆导致你这边掉线了，可能你一下子并没有反应过来以为是网的问题，等你再次登录时，系统给出提示说你上一次在新加坡登录的，于是你很快意识到自己的密码可能泄露了，一般的用户就会立马改掉密码。</p>
-<h2 id="用户状态的权限判断"><a href="#用户状态的权限判断" class="headerlink" title="用户状态的权限判断"></a>用户状态的权限判断</h2><p>可以使用拦截器进行处理</p>
+<h2 id="6-用户状态的权限判断"><a href="#6-用户状态的权限判断" class="headerlink" title="6.用户状态的权限判断"></a>6.用户状态的权限判断</h2><p>可以使用拦截器进行处理</p>
 <h2 id="7-添加验证码机制，防止爆破和批量注册"><a href="#7-添加验证码机制，防止爆破和批量注册" class="headerlink" title="7.添加验证码机制，防止爆破和批量注册"></a>7.添加验证码机制，防止爆破和批量注册</h2><p>防止一些黑客写一些恶意的代码疯狂地注册、校验密码。<br>忘记密码后校验手机验证码一般为四位到六位，比如我现在写了一份代码，可以一瞬间发起一万个请求，这一万个请求把0-9999所有可能的验证码都发到服务器上，你的服务器收到这些请求后总有一个是对的上的，这样就很不安全了。<br>这种情况下服务器就需要做校验，如果有一次验证码验证失效，token就必须重发，且两次不可以一样，，机制与登录注册是一样的。一旦出现错误就给出一些惩罚措施，比如该IP不能继续注册等等。</p>
 
     
